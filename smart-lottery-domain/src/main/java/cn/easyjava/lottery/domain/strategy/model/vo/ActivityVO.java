@@ -1,52 +1,71 @@
-package cn.easyjava.lottery.infrastructure.po;
+package cn.easyjava.lottery.domain.strategy.model.vo;
 
 import java.util.Date;
 
 /**
- * Description: 活动基础信息对象
+ * Description: 活动信息VO对象
  * <br/>
- * ActivityDO
+ * ActivityVO
  *
  * @author laiql
- * @date 2021/11/29 15:52
+ * @date 2021/11/30 16:51
  */
-public class Activity {
+public class ActivityVO {
 
-    // 自增ID
+    /**
+     * 自增ID
+     */
     private Long id;
 
-    // 活动ID
+    /**
+     * 活动ID
+     */
     private Long activityId;
 
-    // 活动名称
+    /**
+     * 活动名称
+     */
     private String activityName;
 
-    // 活动描述
+    /**
+     * 活动描述
+     */
     private String activityDesc;
 
-    // 开始时间
+    /**
+     * 开始时间
+     */
     private Date beginDateTime;
 
-    // 结束时间
+    /**
+     * 结束时间
+     */
     private Date endDateTime;
 
-    // 库存
+    /**
+     * 库存
+     */
     private Integer stockCount;
 
-    // 每人可参与次数
+    /**
+     * 每人可参与次数
+     */
     private Integer takeCount;
 
-    // 活动状态：编辑、提审、撤审、通过、运行、拒绝、关闭、开启
+    /**
+     * 策略ID
+     */
+    private Long strategyId;
+
+    /**
+     * 活动状态：编辑、提审、撤审、通过、运行、拒绝、关闭、开启
+     */
     private Integer state;
 
-    // 创建人
+    /**
+     * 创建人
+     */
     private String creator;
-
-    // 创建时间
-    private Date createTime;
-
-    // 修改时间
-    private Date updateTime;
 
     public Long getId() {
         return id;
@@ -112,6 +131,14 @@ public class Activity {
         this.takeCount = takeCount;
     }
 
+    public Long getStrategyId() {
+        return strategyId;
+    }
+
+    public void setStrategyId(Long strategyId) {
+        this.strategyId = strategyId;
+    }
+
     public Integer getState() {
         return state;
     }
@@ -128,19 +155,19 @@ public class Activity {
         this.creator = creator;
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
+    @Override
+    public String toString() {
+        return "ActivityVO{" +
+                "activityId=" + activityId +
+                ", activityName='" + activityName + '\'' +
+                ", activityDesc='" + activityDesc + '\'' +
+                ", beginDateTime=" + beginDateTime +
+                ", endDateTime=" + endDateTime +
+                ", stockCount=" + stockCount +
+                ", takeCount=" + takeCount +
+                ", strategyId=" + strategyId +
+                ", state=" + state +
+                ", creator='" + creator + '\'' +
+                '}';
     }
 }

@@ -9,11 +9,6 @@ spring:
     username: root
     password: root
 
-#mybatis框架配置
-mybatis:
-  config-location: classpath:/mybatis/config/mybatis-config.xml
-  mapper-locations: classpath:/mybatis/mapper/*.xml
-
 # Dubbo 广播方式配置
 dubbo:
   application:

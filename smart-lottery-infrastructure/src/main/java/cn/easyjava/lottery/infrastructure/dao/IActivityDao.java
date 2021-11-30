@@ -1,10 +1,11 @@
 package cn.easyjava.lottery.infrastructure.dao;
 
 import cn.easyjava.lottery.infrastructure.po.Activity;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
- * Description: 活动信息基础Dao接口
+ * Description: 活动基础信息Dao接口
  * <br/>
  * IActivityDao
  *
@@ -12,20 +13,5 @@ import org.apache.ibatis.annotations.Mapper;
  * @date 2021/11/29 15:53
  */
 @Mapper
-public interface IActivityDao {
-    /**
-     * 新增活动基础信息
-     *
-     * @param activity
-     * @return
-     */
-    int insert(Activity activity);
-
-    /**
-     * 根据活动id查询活动基础信息
-     *
-     * @param activityId 活动id
-     * @return
-     */
-    Activity queryActivityById(Long activityId);
+public interface IActivityDao extends BaseMapper<Activity> {
 }
