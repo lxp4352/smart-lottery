@@ -9,12 +9,18 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>smart-lottery-application</module>
+        <!--公共包-->
         <module>smart-lottery-common</module>
-        <module>smart-lottery-domain</module>
-        <module>smart-lottery-infrastructure</module>
+        <!--接口层-->
         <module>smart-lottery-interfaces</module>
-        <module>smart-lottery-rpc</module>
+        <!--领域层-->
+        <module>smart-lottery-domain</module>
+        <!--基础设施层-->
+        <module>smart-lottery-infrastructure</module>
+        <!--应用层-->
+        <module>smart-lottery-application</module>
+        <!--启动-->
+        <module>smart-lottery-start</module>
     </modules>
 
     <properties>
@@ -30,6 +36,16 @@
         <version>2.3.5.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>5.1.34</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>
