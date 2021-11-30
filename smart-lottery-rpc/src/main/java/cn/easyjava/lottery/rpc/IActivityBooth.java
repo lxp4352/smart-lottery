@@ -2,6 +2,8 @@ package cn.easyjava.lottery.rpc;
 
 import cn.easyjava.lottery.common.CommonResult;
 import cn.easyjava.lottery.rpc.dto.ActivityDto;
+import cn.easyjava.lottery.rpc.req.ActivityRequest;
+import cn.easyjava.lottery.rpc.resp.ActivityResponse;
 
 /**
  * Description:
@@ -20,16 +22,16 @@ public interface IActivityBooth {
     /**
      * 查询活动
      *
-     * @param activityId 活动ID
+     * @param activityRequest 活动ID
      * @return class CommonResult
      */
-    CommonResult<ActivityDto> queryActivityById(Long activityId);
+    ActivityResponse queryActivityById(ActivityRequest activityRequest);
 
     /**
-     * 创建活动
+     * 创建活动请求
      *
-     * @param activityDto 活动基础信息DTO对象
+     * @param activityRequest 活动基础信息DTO对象
      * @return class CommonResult
      */
-    CommonResult createActivity(ActivityDto activityDto);
+    ActivityResponse createActivity(ActivityRequest activityRequest);
 }

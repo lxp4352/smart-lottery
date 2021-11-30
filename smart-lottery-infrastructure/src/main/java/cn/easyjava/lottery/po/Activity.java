@@ -1,4 +1,4 @@
-package cn.easyjava.lottery.dataobject;
+package cn.easyjava.lottery.po;
 
 import java.util.Date;
 
@@ -10,7 +10,7 @@ import java.util.Date;
  * @author laiql
  * @date 2021/11/29 15:52
  */
-public class ActivityDO {
+public class Activity {
 
     // 自增ID
     private Long id;

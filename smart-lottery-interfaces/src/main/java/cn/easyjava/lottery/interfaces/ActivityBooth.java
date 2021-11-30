@@ -2,9 +2,11 @@ package cn.easyjava.lottery.interfaces;
 
 import cn.easyjava.lottery.common.CommonResult;
 import cn.easyjava.lottery.dao.IActivityDao;
-import cn.easyjava.lottery.dataobject.ActivityDO;
+import cn.easyjava.lottery.po.Activity;
 import cn.easyjava.lottery.rpc.IActivityBooth;
 import cn.easyjava.lottery.rpc.dto.ActivityDto;
+import cn.easyjava.lottery.rpc.req.ActivityRequest;
+import cn.easyjava.lottery.rpc.resp.ActivityResponse;
 import org.apache.dubbo.config.annotation.Service;
 
 import javax.annotation.Resource;
@@ -19,46 +21,45 @@ import javax.annotation.Resource;
  */
 @Service
 public class ActivityBooth implements IActivityBooth {
-
     @Resource
     private IActivityDao activityDao;
 
     @Override
-    public CommonResult<ActivityDto> queryActivityById(Long activityId) {
+    public ActivityResponse queryActivityById(ActivityRequest activityRequest) {
         //获取出活动基础信息DO对象
-        ActivityDO activityDO = activityDao.queryActivityById(activityId);
+        Activity activity = activityDao.queryActivityById(activityRequest.getActivityId());
         //返回活动基础信息
-        return CommonResult.buildSuccessResult(activityDOConvertActivityDTO(activityDO));
+        return new ActivityResponse(CommonResult.buildSuccessResult(), activityDOConvertActivityDTO(activity));
     }
 
     @Override
-    public CommonResult createActivity(ActivityDto activityDto) {
+    public ActivityResponse createActivity(ActivityRequest activityRequest) {
         //保存活动基础信息到数据库
-        activityDao.insert(activityDTOConvertActivityDO(activityDto));
-        return CommonResult.buildSuccessResult();
+        activityDao.insert(activityDTOConvertActivityDO(activityRequest.getActivityDto()));
+        return new ActivityResponse(CommonResult.buildSuccessResult());
     }
 
-    private ActivityDto activityDOConvertActivityDTO(ActivityDO activityDO) {
+    private ActivityDto activityDOConvertActivityDTO(Activity activity) {
         ActivityDto activityDto = new ActivityDto();
-        activityDto.setActivityId(activityDO.getActivityId());
-        activityDto.setActivityName(activityDO.getActivityName());
-        activityDto.setActivityDesc(activityDO.getActivityDesc());
-        activityDto.setBeginDateTime(activityDO.getBeginDateTime());
-        activityDto.setEndDateTime(activityDO.getEndDateTime());
-        activityDto.setStockCount(activityDO.getStockCount());
-        activityDto.setTakeCount(activityDO.getTakeCount());
+        activityDto.setActivityId(activity.getActivityId());
+        activityDto.setActivityName(activity.getActivityName());
+        activityDto.setActivityDesc(activity.getActivityDesc());
+        activityDto.setBeginDateTime(activity.getBeginDateTime());
+        activityDto.setEndDateTime(activity.getEndDateTime());
+        activityDto.setStockCount(activity.getStockCount());
+        activityDto.setTakeCount(activity.getTakeCount());
         return activityDto;
     }
 
-    private ActivityDO activityDTOConvertActivityDO(ActivityDto activityDto) {
-        ActivityDO activityDO = new ActivityDO();
-        activityDO.setActivityId(activityDto.getActivityId());
-        activityDO.setActivityName(activityDto.getActivityName());
-        activityDO.setActivityDesc(activityDto.getActivityDesc());
-        activityDO.setBeginDateTime(activityDto.getBeginDateTime());
-        activityDO.setEndDateTime(activityDto.getEndDateTime());
-        activityDO.setStockCount(activityDto.getStockCount());
-        activityDO.setTakeCount(activityDto.getTakeCount());
-        return activityDO;
+    private Activity activityDTOConvertActivityDO(ActivityDto activityDto) {
+        Activity activity = new Activity();
+        activity.setActivityId(activityDto.getActivityId());
+        activity.setActivityName(activityDto.getActivityName());
+        activity.setActivityDesc(activityDto.getActivityDesc());
+        activity.setBeginDateTime(activityDto.getBeginDateTime());
+        activity.setEndDateTime(activityDto.getEndDateTime());
+        activity.setStockCount(activityDto.getStockCount());
+        activity.setTakeCount(activityDto.getTakeCount());
+        return activity;
     }
 }

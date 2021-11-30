@@ -4,7 +4,7 @@ server:
 #数据库连接配置
 spring:
   datasource:
-    url: jdbc://mysql://123.56.148.55:3306/smart-lottery?useUnicode=true
+    url: jdbc:mysql://123.56.148.55:3306/smart_lottery?useUnicode=true
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: root
@@ -20,7 +20,7 @@ dubbo:
     name: smart-lottery
     version: 1.0.0
   registry:
-    address: N/A   #配置项目直连 N/A
+    address: N/A
   protocol:
     name: dubbo
     port: 20880

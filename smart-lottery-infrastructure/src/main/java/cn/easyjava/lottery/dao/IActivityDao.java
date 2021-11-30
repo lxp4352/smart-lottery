@@ -1,6 +1,6 @@
 package cn.easyjava.lottery.dao;
 
-import cn.easyjava.lottery.dataobject.ActivityDO;
+import cn.easyjava.lottery.po.Activity;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -16,10 +16,10 @@ public interface IActivityDao {
     /**
      * 新增活动基础信息
      *
-     * @param activityDO
+     * @param activity
      * @return
      */
-    int insert(ActivityDO activityDO);
+    int insert(Activity activity);
 
     /**
      * 根据活动id查询活动基础信息
@@ -27,5 +27,5 @@ public interface IActivityDao {
      * @param activityId 活动id
      * @return
      */
-    ActivityDO queryActivityById(Long activityId);
+    Activity queryActivityById(Long activityId);
 }
