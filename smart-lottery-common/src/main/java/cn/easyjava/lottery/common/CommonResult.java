@@ -10,7 +10,7 @@ import java.io.Serializable;
  * @author laiql
  * @date 2021/11/29 15:28
  */
-public class CommonResult implements Serializable {
+public class CommonResult<T> implements Serializable {
     /**
      * 状态码
      */
@@ -20,6 +20,8 @@ public class CommonResult implements Serializable {
      */
     private String info;
 
+    private T data;
+
     /**
      * 携带返回数据构造方法
      *
@@ -27,6 +29,12 @@ public class CommonResult implements Serializable {
      * @param info 信息
      * @param data 返回业务数据
      */
+    public CommonResult(String code, String info, T data) {
+        this.code = code;
+        this.info = info;
+        this.data = data;
+    }
+
     public CommonResult(String code, String info) {
         this.code = code;
         this.info = info;
@@ -35,10 +43,32 @@ public class CommonResult implements Serializable {
     /**
      * 成功返回结果
      *
+     * @param data 返回数据
+     * @param <T>  返回类型
      * @return class CommonResult
      */
-    public static CommonResult buildSuccessResult() {
-        return new CommonResult(CommonResultEnum.SUCCESS.getCode(), CommonResultEnum.SUCCESS.getInfo());
+    public static <T> CommonResult<T> success(T data) {
+        return new CommonResult<>(CommonResultEnum.SUCCESS.getCode(), CommonResultEnum.SUCCESS.getInfo(), data);
+    }
+
+    /**
+     * 成功返回结果
+     *
+     * @return class CommonResult
+     */
+    public static <T> CommonResult<T> success() {
+        return new CommonResult<>(CommonResultEnum.SUCCESS.getCode(), CommonResultEnum.SUCCESS.getInfo());
+    }
+
+    /**
+     * 返回失败结果
+     *
+     * @param data 携带返回业务数据
+     * @param <T>  数据类型
+     * @return class CommonResult
+     */
+    public static <T> CommonResult<T> fail(T data) {
+        return new CommonResult<>(CommonResultEnum.UN_ERROR.getCode(), CommonResultEnum.UN_ERROR.getInfo(), data);
     }
 
     /**
@@ -46,8 +76,8 @@ public class CommonResult implements Serializable {
      *
      * @return class CommonResult
      */
-    public static CommonResult buildErrorResult() {
-        return new CommonResult(CommonResultEnum.UN_ERROR.getCode(), CommonResultEnum.UN_ERROR.getInfo());
+    public static <T> CommonResult<T> fail() {
+        return new CommonResult<>(CommonResultEnum.UN_ERROR.getCode(), CommonResultEnum.UN_ERROR.getInfo());
     }
 
     public String getCode() {

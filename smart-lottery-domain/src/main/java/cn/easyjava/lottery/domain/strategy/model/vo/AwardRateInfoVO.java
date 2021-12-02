@@ -12,10 +12,14 @@ import java.math.BigDecimal;
  */
 public class AwardRateInfoVO {
 
-    // 奖品ID
+    /**
+     * 奖品ID
+     */
     private String awardId;
 
-    // 中奖概率
+    /**
+     * 中奖概率
+     */
     private BigDecimal awardRate;
 
     public AwardRateInfoVO() {

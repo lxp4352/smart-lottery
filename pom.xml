@@ -28,6 +28,7 @@
         <sourceEncoding>UTF-8</sourceEncoding>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <smart.lottery.version>1.0-SNAPSHOT</smart.lottery.version>
     </properties>
 
     <parent>
@@ -39,12 +40,87 @@
 
     <dependencyManagement>
         <dependencies>
+            <!--基础设施层-->
+            <dependency>
+                <groupId>cn.easyjava.lottery</groupId>
+                <artifactId>smart-lottery-infrastructure</artifactId>
+                <version>${smart.lottery.version}</version>
+            </dependency>
+            <!--接口层-->
+            <dependency>
+                <groupId>cn.easyjava.lottery</groupId>
+                <artifactId>smart-lottery-interfaces</artifactId>
+                <version>${smart.lottery.version}</version>
+            </dependency>
+            <!--应用模块-->
+            <dependency>
+                <groupId>cn.easyjava.lottery</groupId>
+                <artifactId>smart-lottery-application</artifactId>
+                <version>${smart.lottery.version}</version>
+            </dependency>
+            <!--领域模块-->
+            <dependency>
+                <groupId>cn.easyjava.lottery</groupId>
+                <artifactId>smart-lottery-domain</artifactId>
+                <version>${smart.lottery.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>3.4.2</version>
+            </dependency>
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>5.1.34</version>
             </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.78</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.8</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- apache dubbo依赖-->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>2.7.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>2.7.1</version>
+            </dependency>
+            <!--hutool工具库-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>5.5.0</version>
+            </dependency>
+            <!-- mapstruct对象映射转换工具-->
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>1.4.2.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>1.4.2.Final</version>
+            </dependency>
         </dependencies>
+
     </dependencyManagement>
 
     <build>
@@ -67,5 +143,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

@@ -11,24 +11,24 @@ package cn.easyjava.lottery.domain.strategy.model.req;
 public class DrawRequest {
 
     //用户ID
-    private String uId;
+    private String userId;
     // 策略ID
     private Long strategyId;
 
     public DrawRequest() {
     }
 
-    public DrawRequest(String uId, Long strategyId) {
-        this.uId = uId;
+    public DrawRequest(String userId, Long strategyId) {
+        this.userId = userId;
         this.strategyId = strategyId;
     }
 
-    public String getuId() {
-        return uId;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setuId(String uId) {
-        this.uId = uId;
+    public void setUserId(String uId) {
+        this.userId = uId;
     }
 
     public Long getStrategyId() {

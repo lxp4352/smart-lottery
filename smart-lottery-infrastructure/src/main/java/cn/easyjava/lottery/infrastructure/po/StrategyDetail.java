@@ -12,25 +12,42 @@ import java.math.BigDecimal;
  */
 public class StrategyDetail {
 
-    // 自增ID
+    /**
+     * 自增ID
+     */
     private String id;
 
-    // 策略ID
+    /**
+     * 策略ID
+     */
     private Long strategyId;
 
-    // 奖品ID
+    /**
+     * 奖品ID
+     */
     private String awardId;
 
-    // 奖品数量
+    /**
+     * 奖品数量
+     */
     private String awardCount;
 
-    // 中奖概率
+    /**
+     * 中奖概率
+     */
     private BigDecimal awardRate;
-
-    // 创建时间
+    /**
+     * 用于记录扣减奖品库存使用数量
+     */
+    private Integer awardSurplusCount;
+    /**
+     * 创建时间
+     */
     private String createTime;
 
-    // 修改时间
+    /**
+     * 修改时间
+     */
     private String updateTime;
 
     public String getId() {
@@ -87,5 +104,13 @@ public class StrategyDetail {
 
     public void setUpdateTime(String updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public Integer getAwardSurplusCount() {
+        return awardSurplusCount;
+    }
+
+    public void setAwardSurplusCount(Integer awardSurplusCount) {
+        this.awardSurplusCount = awardSurplusCount;
     }
 }

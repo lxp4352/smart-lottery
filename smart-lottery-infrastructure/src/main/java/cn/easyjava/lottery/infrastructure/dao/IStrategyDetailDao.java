@@ -14,4 +14,11 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface IStrategyDetailDao extends BaseMapper<StrategyDetail> {
+    /**
+     * 扣减库存
+     *
+     * @param strategyDetailReq 策略ID、奖品ID
+     * @return 返回结果
+     */
+    int deductStock(StrategyDetail strategyDetailReq);
 }

@@ -8,7 +8,6 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: root
-
 # Dubbo 广播方式配置
 dubbo:
   application:
@@ -21,3 +20,8 @@ dubbo:
     port: 20880
   scan:
     base-packages: cn.easyjava.lottery.rpc
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+  mapper-locations: classpath*:/mapper/*.xml
