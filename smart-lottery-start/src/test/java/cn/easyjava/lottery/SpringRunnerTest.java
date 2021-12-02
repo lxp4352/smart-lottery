@@ -1,16 +1,22 @@
 package cn.easyjava.lottery;
 
+import cn.easyjava.lottery.domain.award.model.req.GoodsReq;
+import cn.easyjava.lottery.domain.award.model.resp.DistributionRes;
+import cn.easyjava.lottery.domain.award.service.factory.DistributionGoodsFactory;
+import cn.easyjava.lottery.domain.award.service.goods.IDistributionGoods;
+import cn.easyjava.lottery.domain.common.Constants;
 import cn.easyjava.lottery.domain.strategy.model.req.DrawRequest;
+import cn.easyjava.lottery.domain.strategy.model.resp.DrawResult;
 import cn.easyjava.lottery.domain.strategy.model.vo.AwardRateInfoVO;
+import cn.easyjava.lottery.domain.strategy.model.vo.DrawAwardInfoVO;
 import cn.easyjava.lottery.domain.strategy.service.algorithm.IDrawAlgorithm;
 import cn.easyjava.lottery.domain.strategy.service.draw.IDrawExec;
-import cn.easyjava.lottery.infrastructure.dao.IAwardDao;
-import cn.easyjava.lottery.infrastructure.dao.IStrategyDao;
-import cn.easyjava.lottery.infrastructure.dao.IStrategyDetailDao;
-import cn.easyjava.lottery.infrastructure.po.Award;
-import cn.easyjava.lottery.infrastructure.po.Strategy;
-import cn.easyjava.lottery.infrastructure.po.StrategyDetail;
-import org.junit.Before;
+import cn.easyjava.lottery.infrastructure.award.dao.IAwardDao;
+import cn.easyjava.lottery.infrastructure.award.po.Award;
+import cn.easyjava.lottery.infrastructure.strategy.dao.IStrategyDao;
+import cn.easyjava.lottery.infrastructure.strategy.dao.IStrategyDetailDao;
+import cn.easyjava.lottery.infrastructure.strategy.po.StrategyDetail;
+import com.alibaba.fastjson.JSON;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,7 +27,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -41,6 +46,9 @@ public class SpringRunnerTest {
     private IStrategyDetailDao strategyDetailDao;
     @Resource
     private IDrawExec drawExec;
+    @Resource
+    private DistributionGoodsFactory distributionGoodsFactory;
+
     //    @Before
     public void init() {
         // 奖品信息
@@ -67,6 +75,7 @@ public class SpringRunnerTest {
         }
 
     }
+
     @Test
     public void test_drawExec() {
         drawExec.doDrawExec(new DrawRequest("小傅哥", 10001L));
@@ -74,6 +83,7 @@ public class SpringRunnerTest {
         drawExec.doDrawExec(new DrawRequest("小蜗牛", 10001L));
         drawExec.doDrawExec(new DrawRequest("八杯水", 10001L));
     }
+
     @Test
     public void testAdd() {
         Award award = new Award();
@@ -106,4 +116,28 @@ public class SpringRunnerTest {
         strategyDetailDao.insert(strategyDetail);
 
     }
+
+    @Test
+    public void test_award() {
+        // 执行抽奖
+        DrawResult drawResult = drawExec.doDrawExec(new DrawRequest("Test", 10001L));
+
+        // 判断抽奖结果
+        Integer drawState = drawResult.getDrawState();
+        if (Constants.DrawState.FAIL.getCode().equals(drawState)) {
+            System.out.println("未中奖 DrawAwardInfo is null");
+            return;
+        }
+
+        // 封装发奖参数，orderId：2109313442431 为模拟ID，需要在用户参与领奖活动时生成
+        DrawAwardInfoVO drawAwardInfo = drawResult.getDrawAwardInfoVO();
+        GoodsReq goodsReq = new GoodsReq(drawResult.getUserId(), "2109313442431", drawAwardInfo.getAwardId(), drawAwardInfo.getAwardName(), drawAwardInfo.getAwardContent());
+
+        // 根据 awardType 从抽奖工厂中获取对应的发奖服务
+        IDistributionGoods distributionGoodsService = distributionGoodsFactory.getDistributionGoodsService(drawAwardInfo.getAwardType());
+        DistributionRes distributionRes = distributionGoodsService.doDistribution(goodsReq);
+
+        System.out.println("测试结果：" + JSON.toJSONString(distributionRes));
+    }
+
 }

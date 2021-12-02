@@ -22,6 +22,4 @@ dubbo:
     base-packages: cn.easyjava.lottery.rpc
 
 mybatis-plus:
-  configuration:
-    map-underscore-to-camel-case: false
   mapper-locations: classpath*:/mapper/*.xml

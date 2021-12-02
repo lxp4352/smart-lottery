@@ -1,5 +1,6 @@
 package cn.easyjava.lottery.domain.strategy.service.draw;
 
+import cn.easyjava.lottery.domain.common.Constants;
 import cn.easyjava.lottery.domain.strategy.model.aggregates.StrategyRich;
 import cn.easyjava.lottery.domain.strategy.model.req.DrawRequest;
 import cn.easyjava.lottery.domain.strategy.model.resp.DrawResult;
@@ -102,7 +103,7 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
         }
 
         AwardVO awardVO = super.queryAwardInfoByAwardId(awardId);
-        DrawAwardInfoVO drawAwardInfo = new DrawAwardInfoVO(awardVO.getAwardId(), awardVO.getAwardName());
+        DrawAwardInfoVO drawAwardInfo = new DrawAwardInfoVO(awardVO.getAwardId(), awardVO.getAwardName(),awardVO.getAwardType(),awardVO.getAwardContent());
         logger.info("执行策略抽奖完成【已中奖】，用户：{} 策略ID：{} 奖品ID：{} 奖品名称：{}", userId, strategyId, awardId, awardVO.getAwardName());
 
         return new DrawResult(userId, strategyId, Constants.DrawState.SUCCESS.getCode(), drawAwardInfo);

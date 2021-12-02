@@ -1,4 +1,4 @@
-package cn.easyjava.lottery.infrastructure.po;
+package cn.easyjava.lottery.infrastructure.activity.po;
 
 import java.util.Date;
 

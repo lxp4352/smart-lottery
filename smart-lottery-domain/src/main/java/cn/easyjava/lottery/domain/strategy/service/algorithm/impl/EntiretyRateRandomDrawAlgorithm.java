@@ -17,8 +17,8 @@ import java.util.List;
  * @author laiql
  * @date 2021/12/1 10:30
  */
-@Component("defaultRateRandomDrawAlgorithm")
-public class DefaultRateRandomDrawAlgorithm extends BaseAlgorithm {
+@Component("entiretyRateRandomDrawAlgorithm")
+public class EntiretyRateRandomDrawAlgorithm extends BaseAlgorithm {
 
     @Override
     public String randomDraw(Long strategyId, List<String> excludeAwardIds) {
@@ -37,9 +37,14 @@ public class DefaultRateRandomDrawAlgorithm extends BaseAlgorithm {
             differenceDenominator = differenceDenominator.add(awardRateInfo.getAwardRate());
         }
 
-        // 前置判断
-        if (differenceAwardRateList.size() == 0) return "";
-        if (differenceAwardRateList.size() == 1) return differenceAwardRateList.get(0).getAwardId();
+        // 前置判断：奖品列表为0，返回NULL
+        if (differenceAwardRateList.size() == 0) {
+            return "";
+        }
+        // 前置判断：奖品列表为1，直接返回
+        if (differenceAwardRateList.size() == 1) {
+            return differenceAwardRateList.get(0).getAwardId();
+        }
 
         // 获取随机概率值
         SecureRandom secureRandom = new SecureRandom();
@@ -60,5 +65,4 @@ public class DefaultRateRandomDrawAlgorithm extends BaseAlgorithm {
         // 返回中奖结果
         return awardId;
     }
-
 }

@@ -1,8 +1,8 @@
 package cn.easyjava.lottery.infrastructure.common.convert;
 
 import cn.easyjava.lottery.domain.strategy.model.vo.AwardVO;
+import cn.easyjava.lottery.infrastructure.award.po.Award;
 import cn.easyjava.lottery.infrastructure.common.assembler.ObjectConvertMapper;
-import cn.easyjava.lottery.infrastructure.po.Award;
 import org.mapstruct.Mapper;
 
 /**

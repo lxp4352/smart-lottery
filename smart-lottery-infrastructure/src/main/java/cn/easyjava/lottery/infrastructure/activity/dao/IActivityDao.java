@@ -1,16 +1,16 @@
-package cn.easyjava.lottery.infrastructure.dao;
+package cn.easyjava.lottery.infrastructure.activity.dao;
 
-import cn.easyjava.lottery.infrastructure.po.Activity;
+import cn.easyjava.lottery.infrastructure.activity.po.Activity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
- * Description: 活动基础信息Dao接口
+ * Description: 活动Dao接口
  * <br/>
  * IActivityDao
  *
  * @author laiql
- * @date 2021/11/29 15:53
+ * @date 2021/12/2 10:45
  */
 @Mapper
 public interface IActivityDao extends BaseMapper<Activity> {

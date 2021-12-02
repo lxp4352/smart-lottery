@@ -17,7 +17,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class DrawConfig {
     @Resource
-    private IDrawAlgorithm defaultRateRandomDrawAlgorithm;
+    private IDrawAlgorithm entiretyRateRandomDrawAlgorithm;
     @Resource
     private IDrawAlgorithm singleRateRandomDrawAlgorithm;
 
@@ -28,7 +28,7 @@ public class DrawConfig {
 
     @PostConstruct
     public void init() {
-        drawAlgorithmMap.put(1, defaultRateRandomDrawAlgorithm);
+        drawAlgorithmMap.put(1, entiretyRateRandomDrawAlgorithm);
         drawAlgorithmMap.put(2, singleRateRandomDrawAlgorithm);
     }
 }

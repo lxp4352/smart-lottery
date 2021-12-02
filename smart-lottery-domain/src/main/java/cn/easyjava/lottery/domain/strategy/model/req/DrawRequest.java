@@ -10,9 +10,13 @@ package cn.easyjava.lottery.domain.strategy.model.req;
  */
 public class DrawRequest {
 
-    //用户ID
+    /**
+     * 用户ID
+     */
     private String userId;
-    // 策略ID
+    /**
+     * 策略ID
+     */
     private Long strategyId;
 
     public DrawRequest() {

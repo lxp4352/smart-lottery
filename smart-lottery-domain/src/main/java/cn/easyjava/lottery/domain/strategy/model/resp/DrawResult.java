@@ -1,7 +1,7 @@
 package cn.easyjava.lottery.domain.strategy.model.resp;
 
 import cn.easyjava.lottery.domain.strategy.model.vo.DrawAwardInfoVO;
-import cn.easyjava.lottery.domain.strategy.service.draw.Constants;
+import cn.easyjava.lottery.domain.common.Constants;
 
 /**
  * Description: 抽奖结果
@@ -12,16 +12,19 @@ import cn.easyjava.lottery.domain.strategy.service.draw.Constants;
  * @date 2021/11/30 16:31
  */
 public class DrawResult {
-    // 用户ID
+    /**
+     * 用户ID
+     */
     private String userId;
 
-    // 策略ID
+    /**
+     * 策略ID
+     */
     private Long strategyId;
 
-    // 奖品ID
-    private String rewardId;
-
-    // 奖品名称
+    /**
+     * 奖品名称
+     */
     private String awardName;
     /**
      * 中奖奖品信息
@@ -62,14 +65,6 @@ public class DrawResult {
 
     public void setStrategyId(Long strategyId) {
         this.strategyId = strategyId;
-    }
-
-    public String getRewardId() {
-        return rewardId;
-    }
-
-    public void setRewardId(String rewardId) {
-        this.rewardId = rewardId;
     }
 
     public String getAwardName() {
