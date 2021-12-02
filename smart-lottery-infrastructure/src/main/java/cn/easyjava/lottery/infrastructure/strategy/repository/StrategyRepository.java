@@ -1,9 +1,9 @@
 package cn.easyjava.lottery.infrastructure.strategy.repository;
 
 import cn.easyjava.lottery.domain.strategy.model.aggregates.StrategyRich;
-import cn.easyjava.lottery.domain.strategy.model.vo.AwardVO;
-import cn.easyjava.lottery.domain.strategy.model.vo.StrategyDetailVO;
-import cn.easyjava.lottery.domain.strategy.model.vo.StrategyVO;
+import cn.easyjava.lottery.domain.strategy.model.vo.AwardBriefVO;
+import cn.easyjava.lottery.domain.strategy.model.vo.StrategyDetailBriefVO;
+import cn.easyjava.lottery.domain.strategy.model.vo.StrategyBriefVO;
 import cn.easyjava.lottery.domain.strategy.repository.IStrategyRepository;
 import cn.easyjava.lottery.infrastructure.award.dao.IAwardDao;
 import cn.easyjava.lottery.infrastructure.award.po.Award;
@@ -49,18 +49,18 @@ public class StrategyRepository implements IStrategyRepository {
         LambdaQueryWrapper<Strategy> strategyLambdaQueryWrapper = new LambdaQueryWrapper<>();
         strategyLambdaQueryWrapper.eq(true, Strategy::getStrategyId, strategyId);
         Strategy strategy = strategyDao.selectOne(strategyLambdaQueryWrapper);
-        StrategyVO strategyVO = strategyConvertStrategyVO.o1ToO2(strategy);
+        StrategyBriefVO strategyBriefVO = strategyConvertStrategyVO.o1ToO2(strategy);
 
         LambdaQueryWrapper<StrategyDetail> strategyDetailLambdaQueryWrapper = new LambdaQueryWrapper<>();
         strategyDetailLambdaQueryWrapper.eq(true, StrategyDetail::getStrategyId, strategyId);
         List<StrategyDetail> strategyDetails = strategyDetailDao.selectList(strategyDetailLambdaQueryWrapper);
-        List<StrategyDetailVO> strategyDetailVOS = strategyDetailConvertStrategyDetailVO.o1sToO2s(strategyDetails);
+        List<StrategyDetailBriefVO> strategyDetailBriefVOS = strategyDetailConvertStrategyDetailVO.o1sToO2s(strategyDetails);
 
-        return new StrategyRich(strategyId, strategyVO, strategyDetailVOS);
+        return new StrategyRich(strategyId, strategyBriefVO, strategyDetailBriefVOS);
     }
 
     @Override
-    public AwardVO queryAwardInfo(String awardId) {
+    public AwardBriefVO queryAwardInfo(String awardId) {
         LambdaQueryWrapper<Award> lambdaQueryWrapper = new LambdaQueryWrapper<>();
         lambdaQueryWrapper.eq(true, Award::getAwardId, awardId);
         Award award = awardDao.selectOne(lambdaQueryWrapper);

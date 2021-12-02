@@ -1,4 +1,4 @@
-package cn.easyjava.lottery.domain.strategy.model.vo;
+package cn.easyjava.lottery.domain.activity.model.vo;
 
 import java.util.Date;
 

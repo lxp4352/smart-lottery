@@ -27,16 +27,16 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
     public DrawResult doDrawExec(DrawRequest request) {
         // 1.获取抽奖策略配置数据
         StrategyRich strategyRich = super.queryStrategyRich(request.getStrategyId());
-        StrategyVO strategyVO = strategyRich.getStrategyVO();
+        StrategyBriefVO strategyBriefVO = strategyRich.getStrategyVO();
 
         // 2. 校验抽奖策略是否已经初始化到内存
-        this.checkAndInitRateData(request.getStrategyId(), strategyVO.getStrategyMode(), strategyRich.getStrategyDetailVOList());
+        this.checkAndInitRateData(request.getStrategyId(), strategyBriefVO.getStrategyMode(), strategyRich.getStrategyDetailVOList());
 
         // 3. 获取不在抽奖范围内的列表，包括：奖品库存为空、风控策略、临时调整等
         List<String> excludeAwardIds = this.queryExcludeAwardIds(request.getStrategyId());
 
         // 4. 执行抽奖算法
-        String awardId = this.drawAlgorithm(request.getStrategyId(), drawAlgorithmMap.get(strategyVO.getStrategyMode()), excludeAwardIds);
+        String awardId = this.drawAlgorithm(request.getStrategyId(), drawAlgorithmMap.get(strategyBriefVO.getStrategyMode()), excludeAwardIds);
         // 5. 包装中奖结果
         return buildDrawResult(request.getUserId(), request.getStrategyId(), awardId);
     }
@@ -64,9 +64,9 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
      *
      * @param strategyId           策略id
      * @param strategyMode         策略配置模式
-     * @param strategyDetailVOList 策略配置明细
+     * @param strategyDetailBriefVOList 策略配置明细
      */
-    private void checkAndInitRateData(Long strategyId, Integer strategyMode, List<StrategyDetailVO> strategyDetailVOList) {
+    private void checkAndInitRateData(Long strategyId, Integer strategyMode, List<StrategyDetailBriefVO> strategyDetailBriefVOList) {
         // 非单项概率，不必存入缓存
         if (!Constants.StrategyMode.SINGLE.getCode().equals(strategyMode)) {
             return;
@@ -80,8 +80,8 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
         }
 
         // 解析并初始化中奖概率数据到散列表
-        List<AwardRateInfoVO> awardRateInfoList = new ArrayList<>(strategyDetailVOList.size());
-        for (StrategyDetailVO strategyDetail : strategyDetailVOList) {
+        List<AwardRateInfoVO> awardRateInfoList = new ArrayList<>(strategyDetailBriefVOList.size());
+        for (StrategyDetailBriefVO strategyDetail : strategyDetailBriefVOList) {
             awardRateInfoList.add(new AwardRateInfoVO(strategyDetail.getAwardId(), strategyDetail.getAwardRate()));
         }
         //初始化概率数据到散列表
@@ -102,9 +102,9 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
             return new DrawResult(userId, strategyId, Constants.DrawState.FAIL.getCode());
         }
 
-        AwardVO awardVO = super.queryAwardInfoByAwardId(awardId);
-        DrawAwardInfoVO drawAwardInfo = new DrawAwardInfoVO(awardVO.getAwardId(), awardVO.getAwardName(),awardVO.getAwardType(),awardVO.getAwardContent());
-        logger.info("执行策略抽奖完成【已中奖】，用户：{} 策略ID：{} 奖品ID：{} 奖品名称：{}", userId, strategyId, awardId, awardVO.getAwardName());
+        AwardBriefVO awardBriefVO = super.queryAwardInfoByAwardId(awardId);
+        DrawAwardInfoVO drawAwardInfo = new DrawAwardInfoVO(awardBriefVO.getAwardId(), awardBriefVO.getAwardName(), awardBriefVO.getAwardType(), awardBriefVO.getAwardContent());
+        logger.info("执行策略抽奖完成【已中奖】，用户：{} 策略ID：{} 奖品ID：{} 奖品名称：{}", userId, strategyId, awardId, awardBriefVO.getAwardName());
 
         return new DrawResult(userId, strategyId, Constants.DrawState.SUCCESS.getCode(), drawAwardInfo);
     }

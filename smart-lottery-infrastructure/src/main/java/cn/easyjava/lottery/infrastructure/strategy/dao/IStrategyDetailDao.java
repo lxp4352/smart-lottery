@@ -2,7 +2,8 @@ package cn.easyjava.lottery.infrastructure.strategy.dao;
 
 import cn.easyjava.lottery.infrastructure.strategy.po.StrategyDetail;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
  * Description: 策略配置明细Dao接口
@@ -12,7 +13,6 @@ import org.apache.ibatis.annotations.Mapper;
  * @author laiql
  * @date 2021/11/30 16:06
  */
-@Mapper
 public interface IStrategyDetailDao extends BaseMapper<StrategyDetail> {
     /**
      * 扣减库存
@@ -21,4 +21,11 @@ public interface IStrategyDetailDao extends BaseMapper<StrategyDetail> {
      * @return 返回结果
      */
     int deductStock(StrategyDetail strategyDetailReq);
+
+    /**
+     * 插入策略配置组
+     *
+     * @param list 策略配置组
+     */
+    void insertList(List<StrategyDetail> list);
 }

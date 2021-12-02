@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.easyjava.lottery.infrastructure.activity.dao.IActivityDao">
+
+    <resultMap id="activityMap" type="cn.easyjava.lottery.infrastructure.activity.po.Activity">
+        <id column="id" property="id"/>
+        <result column="activity_id" property="activityId"/>
+        <result column="activity_name" property="activityName"/>
+        <result column="activity_desc" property="activityDesc"/>
+        <result column="begin_date_time" property="beginDateTime"/>
+        <result column="end_date_time" property="endDateTime"/>
+        <result column="stock_count" property="stockCount"/>
+        <result column="take_count" property="takeCount"/>
+        <result column="state" property="state"/>
+        <result column="creator" property="creator"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <update id="alterState" parameterType="cn.easyjava.lottery.domain.activity.model.vo.AlterStateVO">
+        UPDATE activity
+        SET state = #{afterState}
+        WHERE activity_id = #{activityId} AND state = #{beforeState}
+    </update>
+</mapper>

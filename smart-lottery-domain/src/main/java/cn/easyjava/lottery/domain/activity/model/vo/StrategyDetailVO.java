@@ -1,15 +1,15 @@
-package cn.easyjava.lottery.domain.strategy.model.vo;
-
-import java.math.BigDecimal;
+package cn.easyjava.lottery.domain.activity.model.vo;
 
 /**
- * Description: 策略详情配置
+ * Description: 策略配置明细
  * <br/>
  * StrategyDetailVO
  *
  * @author laiql
- * @date 2021/11/30 16:37
+ * @date 2021/12/2 15:05
  */
+import java.math.BigDecimal;
+
 public class StrategyDetailVO {
 
     /**

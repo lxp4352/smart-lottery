@@ -110,7 +110,7 @@ public class SpringRunnerTest {
         StrategyDetail strategyDetail = new StrategyDetail();
         strategyDetail.setStrategyId(10001L);
         strategyDetail.setAwardId("10003");
-        strategyDetail.setAwardCount("1");
+        strategyDetail.setAwardCount(1);
         strategyDetail.setAwardRate(new BigDecimal("0.20"));
 
         strategyDetailDao.insert(strategyDetail);

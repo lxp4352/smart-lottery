@@ -1,6 +1,6 @@
 package cn.easyjava.lottery.infrastructure.common.convert;
 
-import cn.easyjava.lottery.domain.strategy.model.vo.AwardVO;
+import cn.easyjava.lottery.domain.strategy.model.vo.AwardBriefVO;
 import cn.easyjava.lottery.infrastructure.award.po.Award;
 import cn.easyjava.lottery.infrastructure.common.assembler.ObjectConvertMapper;
 import org.mapstruct.Mapper;
@@ -14,5 +14,5 @@ import org.mapstruct.Mapper;
  * @date 2021/12/1 11:32
  */
 @Mapper(componentModel = "spring")
-public interface AwardConvertAwardVO extends ObjectConvertMapper<Award, AwardVO> {
+public interface AwardConvertAwardVO extends ObjectConvertMapper<Award, AwardBriefVO> {
 }

@@ -4,14 +4,14 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Description: 策略配置VO对象
+ * Description: 策略简要信息VO对象
  * <br/>
- * StrategyVO
+ * StrategyBriefVO
  *
  * @author laiql
  * @date 2021/11/30 16:40
  */
-public class StrategyVO {
+public class StrategyBriefVO {
 
     /**
      * 策略ID
@@ -47,7 +47,7 @@ public class StrategyVO {
     /**
      * 策略详情配置
      */
-    private List<StrategyDetailVO> strategyDetailVOList;
+    private List<StrategyDetailBriefVO> strategyDetailBriefVOList;
 
     public Long getStrategyId() {
         return strategyId;
@@ -97,12 +97,12 @@ public class StrategyVO {
         this.extInfo = extInfo;
     }
 
-    public List<StrategyDetailVO> getStrategyDetailVOList() {
-        return strategyDetailVOList;
+    public List<StrategyDetailBriefVO> getStrategyDetailVOList() {
+        return strategyDetailBriefVOList;
     }
 
-    public void setStrategyDetailVOList(List<StrategyDetailVO> strategyDetailVOList) {
-        this.strategyDetailVOList = strategyDetailVOList;
+    public void setStrategyDetailVOList(List<StrategyDetailBriefVO> strategyDetailBriefVOList) {
+        this.strategyDetailBriefVOList = strategyDetailBriefVOList;
     }
 
     @Override

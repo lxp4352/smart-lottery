@@ -1,7 +1,7 @@
 package cn.easyjava.lottery.domain.strategy.model.aggregates;
 
-import cn.easyjava.lottery.domain.strategy.model.vo.StrategyDetailVO;
-import cn.easyjava.lottery.domain.strategy.model.vo.StrategyVO;
+import cn.easyjava.lottery.domain.strategy.model.vo.StrategyDetailBriefVO;
+import cn.easyjava.lottery.domain.strategy.model.vo.StrategyBriefVO;
 
 import java.util.List;
 
@@ -23,19 +23,19 @@ public class StrategyRich {
     /**
      * 策略配置
      */
-    private StrategyVO strategyVO;
+    private StrategyBriefVO strategyBriefVO;
     /**
      * 策略明细
      */
-    private List<StrategyDetailVO> strategyDetailVOList;
+    private List<StrategyDetailBriefVO> strategyDetailBriefVOList;
 
     public StrategyRich() {
     }
 
-    public StrategyRich(Long strategyId, StrategyVO strategyVO, List<StrategyDetailVO> strategyDetailVOList) {
+    public StrategyRich(Long strategyId, StrategyBriefVO strategyBriefVO, List<StrategyDetailBriefVO> strategyDetailBriefVOList) {
         this.strategyId = strategyId;
-        this.strategyVO = strategyVO;
-        this.strategyDetailVOList = strategyDetailVOList;
+        this.strategyBriefVO = strategyBriefVO;
+        this.strategyDetailBriefVOList = strategyDetailBriefVOList;
     }
 
     public Long getStrategyId() {
@@ -46,19 +46,19 @@ public class StrategyRich {
         this.strategyId = strategyId;
     }
 
-    public StrategyVO getStrategyVO() {
-        return strategyVO;
+    public StrategyBriefVO getStrategyVO() {
+        return strategyBriefVO;
     }
 
-    public void setStrategyVO(StrategyVO strategyVO) {
-        this.strategyVO = strategyVO;
+    public void setStrategyVO(StrategyBriefVO strategyBriefVO) {
+        this.strategyBriefVO = strategyBriefVO;
     }
 
-    public List<StrategyDetailVO> getStrategyDetailVOList() {
-        return strategyDetailVOList;
+    public List<StrategyDetailBriefVO> getStrategyDetailVOList() {
+        return strategyDetailBriefVOList;
     }
 
-    public void setStrategyDetailVOList(List<StrategyDetailVO> strategyDetailVOList) {
-        this.strategyDetailVOList = strategyDetailVOList;
+    public void setStrategyDetailVOList(List<StrategyDetailBriefVO> strategyDetailBriefVOList) {
+        this.strategyDetailBriefVOList = strategyDetailBriefVOList;
     }
 }

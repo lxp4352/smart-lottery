@@ -1,6 +1,6 @@
 package cn.easyjava.lottery.application.activity.convert;
 
-import cn.easyjava.lottery.domain.strategy.model.vo.ActivityVO;
+import cn.easyjava.lottery.domain.activity.model.vo.ActivityVO;
 import cn.easyjava.lottery.infrastructure.common.assembler.ObjectConvertMapper;
 import cn.easyjava.lottery.rpc.dto.ActivityDto;
 import org.mapstruct.Mapper;

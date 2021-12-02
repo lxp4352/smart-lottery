@@ -1,7 +1,7 @@
 package cn.easyjava.lottery.domain.strategy.service.draw;
 
 import cn.easyjava.lottery.domain.strategy.model.aggregates.StrategyRich;
-import cn.easyjava.lottery.domain.strategy.model.vo.AwardVO;
+import cn.easyjava.lottery.domain.strategy.model.vo.AwardBriefVO;
 import cn.easyjava.lottery.domain.strategy.repository.IStrategyRepository;
 
 import javax.annotation.Resource;
@@ -34,7 +34,7 @@ public class DrawStrategySupport extends DrawConfig {
      * @param awardId 奖品ID
      * @return 中奖详情
      */
-    protected AwardVO queryAwardInfoByAwardId(String awardId) {
+    protected AwardBriefVO queryAwardInfoByAwardId(String awardId) {
         return strategyRepository.queryAwardInfo(awardId);
     }
 }

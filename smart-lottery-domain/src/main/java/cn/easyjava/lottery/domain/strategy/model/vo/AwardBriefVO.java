@@ -3,12 +3,12 @@ package cn.easyjava.lottery.domain.strategy.model.vo;
 /**
  * Description: 奖品信息配置
  * <br/>
- * AwardVO
+ * AwardBriefVO
  *
  * @author laiql
  * @date 2021/12/1 10:59
  */
-public class AwardVO {
+public class AwardBriefVO {
 
     /**
      * 奖品ID
