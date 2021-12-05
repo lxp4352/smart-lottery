@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 public class DescGoods extends AbstractDistribution implements IDistributionGoods {
     @Override
     public DistributionRes doDistribution(GoodsReq req) {
-        logger.info("模拟调用文字描述奖品发放接口 uId：{} awardContent：{}", req.getUserId(), req.getAwardContent());
+        logger.info("模拟调用文字描述奖品发放接口 userId：{} awardContent：{}", req.getUserId(), req.getAwardContent());
         //更新用户领奖结果
         super.updateUserAwardState(req.getUserId(), req.getOrderId(), req.getAwardId(), Constants.AwardState.SUCCESS.getCode(), Constants.AwardState.SUCCESS.getInfo());
         return new DistributionRes(req.getUserId(), Constants.AwardState.SUCCESS.getCode(), Constants.AwardState.SUCCESS.getInfo());

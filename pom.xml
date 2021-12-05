@@ -119,6 +119,11 @@
                 <artifactId>mapstruct-processor</artifactId>
                 <version>1.4.2.Final</version>
             </dependency>
+            <dependency>
+                <groupId>cn.bugstack.middleware</groupId>
+                <artifactId>db-router-spring-boot-starter</artifactId>
+                <version>1.0.1-SNAPSHOT</version>
+            </dependency>
         </dependencies>
 
     </dependencyManagement>

@@ -20,8 +20,8 @@ public abstract class AbstractDistribution {
     @Resource
     private IAwardRepository awardRepository;
 
-    protected void updateUserAwardState(String uId, String orderId, String awardId, Integer awardState, String awardStateInfo) {
+    protected void updateUserAwardState(String userId, String orderId, String awardId, Integer awardState, String awardStateInfo) {
         // TODO 后期添加更新分库分表中，用户个人的抽奖记录表中奖品发奖状态
-        logger.info("TODO 后期添加更新分库分表中，用户个人的抽奖记录表中奖品发奖状态 uId：{}", uId);
+        logger.info("TODO 后期添加更新分库分表中，用户个人的抽奖记录表中奖品发奖状态 userId：{}", userId);
     }
 }

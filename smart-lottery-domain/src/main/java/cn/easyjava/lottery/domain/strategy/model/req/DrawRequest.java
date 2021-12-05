@@ -31,8 +31,8 @@ public class DrawRequest {
         return userId;
     }
 
-    public void setUserId(String uId) {
-        this.userId = uId;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public Long getStrategyId() {
