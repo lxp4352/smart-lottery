@@ -12,7 +12,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import javax.annotation.Resource;
 import java.util.Map;
 
-
 /**
  * Description: ID生成策略测试
  * <br/>
