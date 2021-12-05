@@ -14,6 +14,14 @@ import cn.easyjava.lottery.domain.activity.model.vo.StrategyVO;
  */
 import java.util.List;
 
+/**
+ * Description: 活动配置聚合对象
+ * <br/>
+ * ActivityConfigRich
+ *
+ * @author laiql
+ * @date 2021/12/5 1:43 下午
+ */
 public class ActivityConfigRich {
 
     /** 活动配置 */

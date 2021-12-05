@@ -1,4 +1,4 @@
-package cn.easyjava.lottery;
+package cn.easyjava.lottery.domain;
 
 import cn.easyjava.lottery.domain.activity.model.aggregates.ActivityConfigRich;
 import cn.easyjava.lottery.domain.activity.model.req.ActivityConfigReq;
@@ -10,7 +10,6 @@ import cn.easyjava.lottery.domain.activity.service.deploy.IActivityDeploy;
 import cn.easyjava.lottery.domain.activity.service.stateflow.IStateHandler;
 import cn.easyjava.lottery.domain.common.Constants;
 import com.alibaba.fastjson.JSON;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;

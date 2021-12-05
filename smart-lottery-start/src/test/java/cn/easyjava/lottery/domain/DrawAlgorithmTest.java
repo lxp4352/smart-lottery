@@ -1,4 +1,4 @@
-package cn.easyjava.lottery;
+package cn.easyjava.lottery.domain;
 
 import cn.easyjava.lottery.domain.strategy.model.vo.AwardRateInfoVO;
 import cn.easyjava.lottery.domain.strategy.service.algorithm.IDrawAlgorithm;
