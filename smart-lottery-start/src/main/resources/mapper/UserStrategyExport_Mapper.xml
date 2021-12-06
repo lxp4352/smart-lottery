@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.easyjava.lottery.infrastructure.user.dao.IUserStrategyExportDao">
+<mapper namespace="cn.easyjava.lottery.infrastructure.dao.IUserStrategyExportDao">
 
-    <resultMap id="userStrategyExportMap" type="cn.easyjava.lottery.infrastructure.user.po.UserStrategyExport">
+    <resultMap id="userStrategyExportMap" type="cn.easyjava.lottery.infrastructure.po.UserStrategyExport">
         <id column="id" property="id"/>
         <result column="user_id" property="userId"/>
         <result column="activity_id" property="activityId"/>
@@ -21,7 +21,7 @@
         <result column="update_time" property="updateTime"/>
     </resultMap>
 
-    <insert id="addUserStrategyExport" parameterType="cn.easyjava.lottery.infrastructure.user.po.UserStrategyExport">
+    <insert id="addUserStrategyExport" parameterType="cn.easyjava.lottery.infrastructure.po.UserStrategyExport">
         INSERT INTO user_strategy_export
         (user_id, activity_id, order_id, strategy_id, strategy_mode,
          grant_type, grant_date, grant_state, award_id, award_type,

@@ -1,4 +1,4 @@
-package cn.easyjava.lottery.infrastructure.award.po;
+package cn.easyjava.lottery.infrastructure.po;
 
 import java.util.Date;
 

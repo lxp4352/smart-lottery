@@ -1,8 +1,8 @@
-package cn.easyjava.lottery.infrastructure.user.dao;
+package cn.easyjava.lottery.infrastructure.dao;
 
 import cn.bugstack.middleware.db.router.annotation.DBRouter;
 import cn.bugstack.middleware.db.router.annotation.DBRouterStrategy;
-import cn.easyjava.lottery.infrastructure.user.po.UserStrategyExport;
+import cn.easyjava.lottery.infrastructure.po.UserStrategyExport;
 
 /**
  * Description: 用户策略计算结果表Dao

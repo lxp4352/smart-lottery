@@ -1,19 +1,19 @@
-package cn.easyjava.lottery.infrastructure.strategy.repository;
+package cn.easyjava.lottery.infrastructure.repository;
 
 import cn.easyjava.lottery.domain.strategy.model.aggregates.StrategyRich;
 import cn.easyjava.lottery.domain.strategy.model.vo.AwardBriefVO;
 import cn.easyjava.lottery.domain.strategy.model.vo.StrategyDetailBriefVO;
 import cn.easyjava.lottery.domain.strategy.model.vo.StrategyBriefVO;
 import cn.easyjava.lottery.domain.strategy.repository.IStrategyRepository;
-import cn.easyjava.lottery.infrastructure.award.dao.IAwardDao;
-import cn.easyjava.lottery.infrastructure.award.po.Award;
+import cn.easyjava.lottery.infrastructure.dao.IAwardDao;
+import cn.easyjava.lottery.infrastructure.po.Award;
 import cn.easyjava.lottery.infrastructure.common.convert.AwardConvertAwardVO;
 import cn.easyjava.lottery.infrastructure.common.convert.StrategyConvertStrategyVO;
 import cn.easyjava.lottery.infrastructure.common.convert.StrategyDetailConvertStrategyDetailVO;
-import cn.easyjava.lottery.infrastructure.strategy.dao.IStrategyDao;
-import cn.easyjava.lottery.infrastructure.strategy.dao.IStrategyDetailDao;
-import cn.easyjava.lottery.infrastructure.strategy.po.Strategy;
-import cn.easyjava.lottery.infrastructure.strategy.po.StrategyDetail;
+import cn.easyjava.lottery.infrastructure.dao.IStrategyDao;
+import cn.easyjava.lottery.infrastructure.dao.IStrategyDetailDao;
+import cn.easyjava.lottery.infrastructure.po.Strategy;
+import cn.easyjava.lottery.infrastructure.po.StrategyDetail;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import org.springframework.stereotype.Repository;
 

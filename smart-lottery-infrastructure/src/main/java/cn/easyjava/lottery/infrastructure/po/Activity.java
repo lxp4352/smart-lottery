@@ -1,4 +1,4 @@
-package cn.easyjava.lottery.infrastructure.activity.po;
+package cn.easyjava.lottery.infrastructure.po;
 
 import java.util.Date;
 
@@ -46,7 +46,10 @@ public class Activity {
      * 库存
      */
     private Integer stockCount;
-
+    /**
+     * 库存剩余
+     */
+    private Integer stockSurplusCount;
     /**
      * 每人可参与次数
      */
@@ -56,6 +59,11 @@ public class Activity {
      * 活动状态：编辑、提审、撤审、通过、运行、拒绝、关闭、开启
      */
     private Integer state;
+
+    /**
+     * 策略ID
+     */
+    private Long strategyId;
 
     /**
      * 创建人
@@ -162,6 +170,22 @@ public class Activity {
 
     public Date getUpdateTime() {
         return updateTime;
+    }
+
+    public Integer getStockSurplusCount() {
+        return stockSurplusCount;
+    }
+
+    public void setStockSurplusCount(Integer stockSurplusCount) {
+        this.stockSurplusCount = stockSurplusCount;
+    }
+
+    public Long getStrategyId() {
+        return strategyId;
+    }
+
+    public void setStrategyId(Long strategyId) {
+        this.strategyId = strategyId;
     }
 
     public void setUpdateTime(Date updateTime) {

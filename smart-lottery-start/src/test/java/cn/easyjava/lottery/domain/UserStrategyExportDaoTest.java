@@ -2,8 +2,8 @@ package cn.easyjava.lottery.domain;
 
 import cn.easyjava.lottery.domain.common.Constants;
 import cn.easyjava.lottery.domain.support.ids.IIdGenerator;
-import cn.easyjava.lottery.infrastructure.user.dao.IUserStrategyExportDao;
-import cn.easyjava.lottery.infrastructure.user.po.UserStrategyExport;
+import cn.easyjava.lottery.infrastructure.dao.IUserStrategyExportDao;
+import cn.easyjava.lottery.infrastructure.po.UserStrategyExport;
 import com.alibaba.fastjson.JSON;
 import org.junit.Test;
 import org.junit.runner.RunWith;

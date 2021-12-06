@@ -1,7 +1,7 @@
 package cn.easyjava.lottery.domain;
 
-import cn.easyjava.lottery.infrastructure.user.dao.IUserTakeActivityDao;
-import cn.easyjava.lottery.infrastructure.user.po.UserTakeActivity;
+import cn.easyjava.lottery.infrastructure.dao.IUserTakeActivityDao;
+import cn.easyjava.lottery.infrastructure.po.UserTakeActivity;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

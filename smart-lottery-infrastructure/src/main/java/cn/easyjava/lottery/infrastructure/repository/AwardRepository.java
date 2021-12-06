@@ -1,4 +1,4 @@
-package cn.easyjava.lottery.infrastructure.award.repository;
+package cn.easyjava.lottery.infrastructure.repository;
 
 import cn.easyjava.lottery.domain.award.repository.IAwardRepository;
 import org.springframework.stereotype.Repository;

@@ -19,7 +19,7 @@ import java.util.Date;
  */
 @Configuration
 @EnableTransactionManagement
-@MapperScan("cn.easyjava.lottery.infrastructure.**.dao.**")
+@MapperScan("cn.easyjava.lottery.infrastructure.dao")
 public class MybatisPlusConfiguration {
 
     @Bean

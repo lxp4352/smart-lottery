@@ -1,6 +1,6 @@
-package cn.easyjava.lottery.infrastructure.strategy.dao;
+package cn.easyjava.lottery.infrastructure.dao;
 
-import cn.easyjava.lottery.infrastructure.strategy.po.StrategyDetail;
+import cn.easyjava.lottery.infrastructure.po.StrategyDetail;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 import java.util.List;

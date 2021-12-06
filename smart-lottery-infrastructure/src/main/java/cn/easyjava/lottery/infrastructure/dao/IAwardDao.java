@@ -1,6 +1,6 @@
-package cn.easyjava.lottery.infrastructure.award.dao;
+package cn.easyjava.lottery.infrastructure.dao;
 
-import cn.easyjava.lottery.infrastructure.award.po.Award;
+import cn.easyjava.lottery.infrastructure.po.Award;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 import java.util.List;

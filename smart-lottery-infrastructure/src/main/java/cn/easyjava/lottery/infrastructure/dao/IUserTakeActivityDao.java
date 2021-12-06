@@ -1,7 +1,6 @@
-package cn.easyjava.lottery.infrastructure.user.dao;
+package cn.easyjava.lottery.infrastructure.dao;
 
-import cn.bugstack.middleware.db.router.annotation.DBRouter;
-import cn.easyjava.lottery.infrastructure.user.po.UserTakeActivity;
+import cn.easyjava.lottery.infrastructure.po.UserTakeActivity;
 
 /**
  * Description: 用户领取活动表Dao
@@ -18,7 +17,7 @@ public interface IUserTakeActivityDao {
      *
      * @param userTakeActivity 入参
      */
-    @DBRouter(key = "userId")
+//    @DBRouter(key = "userId")
     void addUserTakeActivity(UserTakeActivity userTakeActivity);
 
 }
