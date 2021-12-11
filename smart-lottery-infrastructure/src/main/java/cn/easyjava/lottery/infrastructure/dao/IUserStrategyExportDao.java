@@ -26,10 +26,9 @@ public interface IUserStrategyExportDao {
     /**
      * 查询数据
      *
-     * @param uId 用户ID
+     * @param userId 用户ID
      * @return 用户策略
      */
     @DBRouter
-    UserStrategyExport queryUserStrategyExportByUId(String uId);
-
+    UserStrategyExport queryUserStrategyExportByUId(String userId);
 }

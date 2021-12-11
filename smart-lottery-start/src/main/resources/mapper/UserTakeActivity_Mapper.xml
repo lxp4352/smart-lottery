@@ -18,10 +18,22 @@
     <insert id="addUserTakeActivity" parameterType="cn.easyjava.lottery.infrastructure.po.UserTakeActivity">
         INSERT INTO user_take_activity
         (user_id, take_id, activity_id, activity_name, take_date,
-         take_count, uuid, create_time, update_time)
+         take_count, uuid,strategy_id, state, create_time, update_time)
         VALUES
         (#{userId}, #{takeId}, #{activityId}, #{activityName}, #{takeDate},
-         #{takeCount}, #{uuid}, now(), now())
+         #{takeCount}, #{uuid},#{strategyId}, #{state}, now(), now())
     </insert>
 
+    <update id="lockTackActivity" parameterType="cn.easyjava.lottery.infrastructure.po.UserTakeActivity">
+        UPDATE user_take_activity SET state = 1
+        WHERE user_id = #{userId} AND activity_id = #{activityId} AND state = 0
+    </update>
+
+    <select id="queryNoConsumedTakeActivityOrder" parameterType="cn.easyjava.lottery.infrastructure.po.UserTakeActivity" resultMap="userTakeActivityMap">
+        SELECT activity_id, take_id, strategy_id, state
+        FROM user_take_activity
+        WHERE user_id = #{userId} AND activity_id = #{activityId} AND state = 0
+        ORDER BY id DESC
+        LIMIT 1
+    </select>
 </mapper>

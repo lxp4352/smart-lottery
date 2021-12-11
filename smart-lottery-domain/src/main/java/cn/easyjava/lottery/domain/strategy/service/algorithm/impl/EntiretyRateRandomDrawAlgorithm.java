@@ -47,8 +47,7 @@ public class EntiretyRateRandomDrawAlgorithm extends BaseAlgorithm {
         }
 
         // 获取随机概率值
-        SecureRandom secureRandom = new SecureRandom();
-        int randomVal = secureRandom.nextInt(100) + 1;
+        int randomVal = this.generateSecureRandomIntCode(100);
 
         // 循环获取奖品
         String awardId = "";

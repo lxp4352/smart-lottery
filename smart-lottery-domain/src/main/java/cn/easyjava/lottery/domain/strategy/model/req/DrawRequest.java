@@ -19,12 +19,32 @@ public class DrawRequest {
      */
     private Long strategyId;
 
+    /**
+     * 防重ID
+     */
+    private String uuid;
+
+
     public DrawRequest() {
+    }
+
+    public DrawRequest(String userId, Long strategyId, String uuid) {
+        this.userId = userId;
+        this.strategyId = strategyId;
+        this.uuid = uuid;
     }
 
     public DrawRequest(String userId, Long strategyId) {
         this.userId = userId;
         this.strategyId = strategyId;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    public String getUuid() {
+        return uuid;
     }
 
     public String getUserId() {

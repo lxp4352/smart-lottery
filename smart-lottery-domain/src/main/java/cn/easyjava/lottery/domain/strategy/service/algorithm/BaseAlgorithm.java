@@ -1,8 +1,10 @@
 package cn.easyjava.lottery.domain.strategy.service.algorithm;
 
+import cn.easyjava.lottery.domain.common.Constants;
 import cn.easyjava.lottery.domain.strategy.model.vo.AwardRateInfoVO;
 
 import java.math.BigDecimal;
+import java.security.SecureRandom;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -38,9 +40,20 @@ public abstract class BaseAlgorithm implements IDrawAlgorithm {
     protected Map<Long, List<AwardRateInfoVO>> awardRateInfoMap = new ConcurrentHashMap<>();
 
     @Override
-    public void initRateTuple(Long strategyId, List<AwardRateInfoVO> awardRateInfoList) {
+    public synchronized void initRateTuple(Long strategyId,Integer strategyMode, List<AwardRateInfoVO> awardRateInfoList) {
+
+        // 前置判断
+        if (isExist(strategyId)){
+            return;
+        }
+
         // 保存奖品概率信息
         awardRateInfoMap.put(strategyId, awardRateInfoList);
+
+        // 非单项概率，不必存入缓存，因为这部分抽奖算法需要实时处理中奖概率。
+        if (!Constants.StrategyMode.SINGLE.getCode().equals(strategyMode)) {
+            return;
+        }
 
         String[] rateTuple = rateTupleMap.computeIfAbsent(strategyId, k -> new String[RATE_TUPLE_LENGTH]);
 
@@ -59,8 +72,8 @@ public abstract class BaseAlgorithm implements IDrawAlgorithm {
     }
 
     @Override
-    public boolean isExistRateTuple(Long strategyId) {
-        return rateTupleMap.containsKey(strategyId);
+    public boolean isExist(Long strategyId) {
+        return awardRateInfoMap.containsKey(strategyId);
     }
 
     /**
@@ -72,5 +85,14 @@ public abstract class BaseAlgorithm implements IDrawAlgorithm {
     protected int hashIdx(int val) {
         int hashCode = val * HASH_INCREMENT + HASH_INCREMENT;
         return hashCode & (RATE_TUPLE_LENGTH - 1);
+    }
+
+    /**
+     * 生成百位随机抽奖码
+     *
+     * @return 随机值
+     */
+    protected int generateSecureRandomIntCode(int bound) {
+        return new SecureRandom().nextInt(bound) + 1;
     }
 }

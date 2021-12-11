@@ -60,7 +60,7 @@ public class SpringRunnerTest {
         strategyList.add(new AwardRateInfoVO("五等奖：充电宝", new BigDecimal("0.35")));
 
         // 初始数据
-        randomDrawAlgorithm.initRateTuple(100001L, strategyList);
+        randomDrawAlgorithm.initRateTuple(100001L,2, strategyList);
     }
 
     @Test

@@ -25,7 +25,7 @@ public class SingleRateRandomDrawAlgorithm extends BaseAlgorithm {
         assert rateTuple != null;
 
         // 随机索引
-        int randomVal = new SecureRandom().nextInt(100) + 1;
+        int randomVal = this.generateSecureRandomIntCode(100);
         int idx = super.hashIdx(randomVal);
 
         // 返回结果
