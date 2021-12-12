@@ -37,6 +37,42 @@ public class Constants {
     }
 
     /**
+     * 全局属性
+     */
+    public static final class Global {
+        /** 空节点值 */
+        public static final Long TREE_NULL_NODE = 0L;
+    }
+
+    /**
+     * 决策树节点
+     */
+    public static final class NodeType{
+        /** 树茎 */
+        public static final Integer STEM = 1;
+        /** 果实 */
+        public static final Integer FRUIT = 2;
+    }
+
+    /**
+     * 规则限定类型
+     */
+    public static final class RuleLimitType {
+        /** 等于 */
+        public static final int EQUAL = 1;
+        /** 大于 */
+        public static final int GT = 2;
+        /** 小于 */
+        public static final int LT = 3;
+        /** 大于&等于 */
+        public static final int GE = 4;
+        /** 小于&等于 */
+        public static final int LE = 5;
+        /** 枚举 */
+        public static final int ENUM = 6;
+    }
+
+    /**
      * 抽奖策略模式：总体概率、单项概率
      * 场景：两种抽奖算法描述，场景A20%、B30%、C50%
      * 单项概率：如果A奖品抽空后，B和C保持目前中奖概率，用户抽奖扔有20%中为A，因A库存抽空则结果展示为未中奖。为了运营成本，通常这种情况的使用的比较多
