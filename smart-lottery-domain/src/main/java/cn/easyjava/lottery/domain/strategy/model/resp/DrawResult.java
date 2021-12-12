@@ -1,6 +1,6 @@
 package cn.easyjava.lottery.domain.strategy.model.resp;
 
-import cn.easyjava.lottery.domain.strategy.model.vo.DrawAwardInfoVO;
+import cn.easyjava.lottery.domain.strategy.model.vo.DrawAwardVO;
 import cn.easyjava.lottery.domain.common.Constants;
 
 /**
@@ -29,7 +29,7 @@ public class DrawResult {
     /**
      * 中奖奖品信息
      */
-    private DrawAwardInfoVO drawAwardInfoVO;
+    private DrawAwardVO drawAwardVO;
     /**
      * 中奖状态：0未中奖、1已中奖、2兜底奖 Constants.DrawState
      */
@@ -44,11 +44,11 @@ public class DrawResult {
         this.drawState = drawState;
     }
 
-    public DrawResult(String userId, Long strategyId, Integer drawState, DrawAwardInfoVO drawAwardInfoVO) {
+    public DrawResult(String userId, Long strategyId, Integer drawState, DrawAwardVO drawAwardVO) {
         this.userId = userId;
         this.strategyId = strategyId;
         this.drawState = drawState;
-        this.drawAwardInfoVO = drawAwardInfoVO;
+        this.drawAwardVO = drawAwardVO;
     }
 
     public String getUserId() {
@@ -75,12 +75,12 @@ public class DrawResult {
         this.awardName = awardName;
     }
 
-    public DrawAwardInfoVO getDrawAwardInfoVO() {
-        return drawAwardInfoVO;
+    public DrawAwardVO getDrawAwardInfoVO() {
+        return drawAwardVO;
     }
 
-    public void setDrawAwardInfoVO(DrawAwardInfoVO drawAwardInfoVO) {
-        this.drawAwardInfoVO = drawAwardInfoVO;
+    public void setDrawAwardInfoVO(DrawAwardVO drawAwardVO) {
+        this.drawAwardVO = drawAwardVO;
     }
 
     public Integer getDrawState() {

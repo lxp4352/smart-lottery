@@ -1,7 +1,7 @@
 package cn.easyjava.lottery.domain.strategy.service.algorithm;
 
 import cn.easyjava.lottery.domain.common.Constants;
-import cn.easyjava.lottery.domain.strategy.model.vo.AwardRateInfoVO;
+import cn.easyjava.lottery.domain.strategy.model.vo.AwardRateVO;
 
 import java.math.BigDecimal;
 import java.security.SecureRandom;
@@ -37,10 +37,10 @@ public abstract class BaseAlgorithm implements IDrawAlgorithm {
     /**
      * 奖品区间概率值，strategyId -> [awardId->begin、awardId->end]
      */
-    protected Map<Long, List<AwardRateInfoVO>> awardRateInfoMap = new ConcurrentHashMap<>();
+    protected Map<Long, List<AwardRateVO>> awardRateInfoMap = new ConcurrentHashMap<>();
 
     @Override
-    public synchronized void initRateTuple(Long strategyId,Integer strategyMode, List<AwardRateInfoVO> awardRateInfoList) {
+    public synchronized void initRateTuple(Long strategyId,Integer strategyMode, List<AwardRateVO> awardRateInfoList) {
 
         // 前置判断
         if (isExist(strategyId)){
@@ -58,12 +58,12 @@ public abstract class BaseAlgorithm implements IDrawAlgorithm {
         String[] rateTuple = rateTupleMap.computeIfAbsent(strategyId, k -> new String[RATE_TUPLE_LENGTH]);
 
         int cursorVal = 0;
-        for (AwardRateInfoVO awardRateInfoVO : awardRateInfoList) {
-            int rateVal = awardRateInfoVO.getAwardRate().multiply(new BigDecimal(100)).intValue();
+        for (AwardRateVO awardRateVO : awardRateInfoList) {
+            int rateVal = awardRateVO.getAwardRate().multiply(new BigDecimal(100)).intValue();
 
             // 循环填充概率范围值
             for (int i = cursorVal + 1; i <= (rateVal + cursorVal); i++) {
-                rateTuple[hashIdx(i)] = awardRateInfoVO.getAwardId();
+                rateTuple[hashIdx(i)] = awardRateVO.getAwardId();
             }
 
             cursorVal += rateVal;

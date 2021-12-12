@@ -5,13 +5,17 @@ import java.util.Date;
 /**
  * Description: 中奖奖品信息
  * <br/>
- * DrawAwardInfoVO
+ * DrawAwardVO
  *
  * @author laiql
  * @date 2021/12/1 15:55
  */
-public class DrawAwardInfoVO {
+public class DrawAwardVO {
 
+    /**
+     * 用户ID
+     */
+    private String userId;
 
     /**
      * 奖品ID
@@ -47,14 +51,23 @@ public class DrawAwardInfoVO {
      */
     private Date grantDate;
 
-    public DrawAwardInfoVO() {
+    public DrawAwardVO() {
     }
 
-    public DrawAwardInfoVO(String awardId, String awardName, Integer awardType, String awardContent) {
+    public DrawAwardVO(String userId, String awardId, Integer awardType, String awardName, String awardContent) {
+        this.userId = userId;
         this.awardId = awardId;
-        this.awardName = awardName;
         this.awardType = awardType;
+        this.awardName = awardName;
         this.awardContent = awardContent;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public Integer getStrategyMode() {
@@ -113,4 +126,17 @@ public class DrawAwardInfoVO {
         this.awardName = awardName;
     }
 
+    @Override
+    public String toString() {
+        return "DrawAwardVO{" +
+                "userId='" + userId + '\'' +
+                ", awardId='" + awardId + '\'' +
+                ", awardType=" + awardType +
+                ", awardName='" + awardName + '\'' +
+                ", awardContent='" + awardContent + '\'' +
+                ", strategyMode=" + strategyMode +
+                ", grantType=" + grantType +
+                ", grantDate=" + grantDate +
+                '}';
+    }
 }

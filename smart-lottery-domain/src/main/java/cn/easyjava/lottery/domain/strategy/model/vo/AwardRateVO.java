@@ -5,12 +5,12 @@ import java.math.BigDecimal;
 /**
  * Description: 奖品概率信息，奖品编号、库存、概率
  * <br/>
- * AwardRateInfo
+ * AwardRateVO
  *
  * @author laiql
  * @date 2021/11/30 16:30
  */
-public class AwardRateInfoVO {
+public class AwardRateVO {
 
     /**
      * 奖品ID
@@ -22,10 +22,10 @@ public class AwardRateInfoVO {
      */
     private BigDecimal awardRate;
 
-    public AwardRateInfoVO() {
+    public AwardRateVO() {
     }
 
-    public AwardRateInfoVO(String awardId, BigDecimal awardRate) {
+    public AwardRateVO(String awardId, BigDecimal awardRate) {
         this.awardId = awardId;
         this.awardRate = awardRate;
     }
@@ -44,5 +44,13 @@ public class AwardRateInfoVO {
 
     public void setAwardRate(BigDecimal awardRate) {
         this.awardRate = awardRate;
+    }
+
+    @Override
+    public String toString() {
+        return "AwardRateVO{" +
+                "awardId='" + awardId + '\'' +
+                ", awardRate=" + awardRate +
+                '}';
     }
 }

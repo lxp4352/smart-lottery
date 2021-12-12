@@ -1,7 +1,7 @@
 package cn.easyjava.lottery.application.activity.process.resp;
 
 import cn.easyjava.lottery.domain.common.Result;
-import cn.easyjava.lottery.domain.strategy.model.vo.DrawAwardInfoVO;
+import cn.easyjava.lottery.domain.strategy.model.vo.DrawAwardVO;
 
 /**
  * Description: 中奖奖品信息
@@ -13,22 +13,22 @@ import cn.easyjava.lottery.domain.strategy.model.vo.DrawAwardInfoVO;
  */
 public class DrawProcessResult extends Result {
 
-    private DrawAwardInfoVO drawAwardInfoVO;
+    private DrawAwardVO drawAwardVO;
 
     public DrawProcessResult(String code, String info) {
         super(code, info);
     }
 
-    public DrawProcessResult(String code, String info, DrawAwardInfoVO drawAwardInfo) {
+    public DrawProcessResult(String code, String info, DrawAwardVO drawAwardInfo) {
         super(code, info);
-        this.drawAwardInfoVO = drawAwardInfo;
+        this.drawAwardVO = drawAwardInfo;
     }
 
-    public DrawAwardInfoVO getDrawAwardInfoVO() {
-        return drawAwardInfoVO;
+    public DrawAwardVO getDrawAwardVO() {
+        return drawAwardVO;
     }
 
-    public void setDrawAwardInfoVO(DrawAwardInfoVO drawAwardInfoVO) {
-        this.drawAwardInfoVO = drawAwardInfoVO;
+    public void setDrawAwardVO(DrawAwardVO drawAwardVO) {
+        this.drawAwardVO = drawAwardVO;
     }
 }

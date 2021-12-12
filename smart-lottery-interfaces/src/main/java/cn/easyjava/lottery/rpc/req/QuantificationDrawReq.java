@@ -1,38 +1,29 @@
-package cn.easyjava.lottery.domain.rule.model.req;
+package cn.easyjava.lottery.rpc.req;
 
 import java.util.Map;
 
 /**
- * Description: 决策物料
+ * Description: 量化人群抽奖请求参数
  * <br/>
- * DecisionMatterReq
+ * QuantificationDrawReq
  *
  * @author laiql
- * @date 2021/12/12 8:15 下午
+ * @date 2021/12/12 9:09 下午
  */
-public class DecisionMatterReq {
+public class QuantificationDrawReq {
 
-    /**
-     * 规则树ID
-     */
-    private Long treeId;
     /**
      * 用户ID
      */
     private String userId;
     /**
+     * 规则树ID
+     */
+    private Long treeId;
+    /**
      * 决策值
      */
     private Map<String, Object> valMap;
-
-    public DecisionMatterReq() {
-    }
-
-    public DecisionMatterReq(Long treeId, String userId, Map<String, Object> valMap) {
-        this.treeId = treeId;
-        this.userId = userId;
-        this.valMap = valMap;
-    }
 
     public Long getTreeId() {
         return treeId;
