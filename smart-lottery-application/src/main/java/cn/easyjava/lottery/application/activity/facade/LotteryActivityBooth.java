@@ -1,4 +1,4 @@
-package cn.easyjava.lottery.application.activity;
+package cn.easyjava.lottery.application.activity.facade;
 
 import cn.easyjava.lottery.application.activity.convert.DrawAwardVOConvertAwardDTO;
 import cn.easyjava.lottery.application.activity.process.IActivityProcess;
@@ -22,7 +22,7 @@ import org.springframework.stereotype.Controller;
 import javax.annotation.Resource;
 
 /**
- * Description: 活动站台业务实现
+ * Description: 统一门面接口实现活动站台业务
  * <br/>
  * LotteryActivityBooth
  *

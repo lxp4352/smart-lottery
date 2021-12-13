@@ -48,7 +48,7 @@ public class ActivityProcessTest {
         req.setTreeId(2110081902L);
         req.setValMap(new HashMap<String, Object>() {{
             put("gender", "man");
-            put("age", "25");
+            put("age", "18");
         }});
         DrawRes drawRes = activityBooth.doQuantificationDraw(req);
         logger.info("请求参数：{}", JSON.toJSONString(req));
