@@ -1,5 +1,6 @@
 package cn.easyjava.lottery.rpc.req;
 
+import java.io.Serializable;
 import java.util.Map;
 
 /**
@@ -10,7 +11,7 @@ import java.util.Map;
  * @author laiql
  * @date 2021/12/12 9:09 下午
  */
-public class QuantificationDrawReq {
+public class QuantificationDrawReq implements Serializable {
 
     /**
      * 用户ID
