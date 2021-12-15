@@ -2,11 +2,14 @@ package cn.easyjava.lottery.domain;
 
 import cn.easyjava.lottery.domain.activity.model.aggregates.ActivityConfigRich;
 import cn.easyjava.lottery.domain.activity.model.req.ActivityConfigReq;
+import cn.easyjava.lottery.domain.activity.model.req.PartakeReq;
+import cn.easyjava.lottery.domain.activity.model.resp.PartakeResult;
 import cn.easyjava.lottery.domain.activity.model.vo.ActivityVO;
 import cn.easyjava.lottery.domain.activity.model.vo.AwardVO;
 import cn.easyjava.lottery.domain.activity.model.vo.StrategyDetailVO;
 import cn.easyjava.lottery.domain.activity.model.vo.StrategyVO;
 import cn.easyjava.lottery.domain.activity.service.deploy.IActivityDeploy;
+import cn.easyjava.lottery.domain.activity.service.partake.IActivityPartake;
 import cn.easyjava.lottery.domain.activity.service.stateflow.IStateHandler;
 import cn.easyjava.lottery.domain.common.Constants;
 import com.alibaba.fastjson.JSON;
@@ -42,6 +45,8 @@ public class ActivityTest {
 
     @Resource
     private IStateHandler stateHandler;
+    @Resource
+    private IActivityPartake activityPartake;
 
     private ActivityConfigRich activityConfigRich;
 
@@ -50,7 +55,7 @@ public class ActivityTest {
      */
     private Long activityId = 120981321L;
 
-//    @Before
+    //    @Before
     public void init() {
 
         ActivityVO activity = new ActivityVO();
@@ -174,4 +179,12 @@ public class ActivityTest {
         logger.info("二次提审，测试：{}", JSON.toJSONString(stateHandler.checkPass(120981321L, Constants.ActivityState.EDIT)));
     }
 
+    @Test
+    public void test_activityPartake() {
+        PartakeReq req = new PartakeReq("Uhdgkw766120d", 100001L);
+        PartakeResult partakeResult = activityPartake.doPartake(req);
+        logger.info("请求参数：{}", JSON.toJSONString(req));
+        logger.info("测试结果：{}", JSON.toJSONString(partakeResult));
+
+    }
 }
