@@ -1,7 +1,7 @@
 # smart-lottery
 ### 项目简介：
 
-smart-lottery 抽奖系统 项目是一款互联网面向C端人群营销活动类的抽奖系统，可以提供抽奖活动玩法策略的创建、参与、记账、发奖等逻辑功能。在使用的过程中运营人员通过创建概率类奖品的抽奖玩法，对用户进行拉新、促活、留存，通常这样的系统会用在电商、外卖、出行、公众号运营等各类场景中。架构采用DDD领域驱动中四层架构，涉及技术：SpringBoot、Mybatis、Dubbo、MQ、Redis、Mysql、ELK、分库分表、Otter等
+smart-lottery 抽奖系统 项目是一款互联网面向C端人群营销活动类的抽奖系统，可以提供抽奖活动玩法策略的创建、参与、记账、发奖等逻辑功能。在使用的过程中运营人员通过创建概率类奖品的抽奖玩法，对用户进行拉新、促活、留存，通常这样的系统会用在电商、外卖、出行、公众号运营等各类场景中。**架构采用DDD 领域驱动设计、充血模型、设计模式，包括（工厂模式，策略模式，模板模式，组合模式，状态模式，外观模式）**等
 
 ## 架构介绍：
 
@@ -38,11 +38,29 @@ smart-lottery 抽奖系统 项目是一款互联网面向C端人群营销活动�
 
 ## DDD 按模块分离系统搭建
 
-### 项目结构图
+### 项目分层结构
+
+![image-20211215222141177](./doc/image/ddd分层.png)
+
+
 
 ### 技术介绍
 
-### 功能介绍
+**后端技术**
+
+| 技术                          | 说明               | 官网                                        |
+| ----------------------------- | ------------------ | ------------------------------------------- |
+| SpringBoot                    | 容器+MVC框架       | https://spring.io/projects/spring-boot      |
+| Dubbo                         | RPC框架            | https://dubbo.apache.org/zh/                |
+| MyBatis-plus                  | ORM框架            | https://baomidou.com/                       |
+| RabbitMq                      | 消息队列           | https://www.rabbitmq.com/                   |
+| Redis                         | 分布式缓存         | https://redis.io/                           |
+| Docker                        | 应用容器引擎       | https://www.docker.com/                     |
+| kubernetes                    | 容器集群自动化部署 | https://kubernetes.io/zh/                   |
+| mariadb                       | 数据库             | https://mariadb.org/                        |
+| db-router-spring-boot-starter | 分库分表           | 自研                                        |
+| Otter                         | 分布式数据同步     | https://github.com/alibaba/otter/           |
+| ELK                           | 实时日志平台       | https://www.elastic.co/cn/what-is/elk-stack |
 
 ## 容器化部署
 
