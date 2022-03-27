@@ -29,13 +29,20 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <smart.lottery.version>1.0-SNAPSHOT</smart.lottery.version>
+        <mybatis-plus.version>3.4.2</mybatis-plus.version>
+        <fastjson.version>1.2.78</fastjson.version>
+        <commons.version>3.8</commons.version>
+        <dubbo.version>2.7.1</dubbo.version>
+        <hutool-all.version>5.5.0</hutool-all.version>
+        <mapstruct.version>1.4.2.Final</mapstruct.version>
+        <sharding-jdbc.version>4.1.1</sharding-jdbc.version>
     </properties>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.5.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <version>2.3.12.RELEASE</version>
+        <relativePath/>
     </parent>
 
     <dependencyManagement>
@@ -68,61 +75,51 @@
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>3.4.2</version>
-            </dependency>
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>5.1.34</version>
+                <version>${mybatis-plus.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
-                <version>1.2.78</version>
+                <version>${fastjson.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
-                <version>3.8</version>
-            </dependency>
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>4.12</version>
-                <scope>test</scope>
+                <version>${commons.version}</version>
             </dependency>
             <!-- apache dubbo依赖-->
             <dependency>
                 <groupId>org.apache.dubbo</groupId>
                 <artifactId>dubbo</artifactId>
-                <version>2.7.1</version>
+                <version>${dubbo.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.dubbo</groupId>
                 <artifactId>dubbo-spring-boot-starter</artifactId>
-                <version>2.7.1</version>
+                <version>${dubbo.version}</version>
             </dependency>
             <!--hutool工具库-->
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
-                <version>5.5.0</version>
+                <version>${hutool-all.version}</version>
             </dependency>
             <!-- mapstruct对象映射转换工具-->
             <dependency>
                 <groupId>org.mapstruct</groupId>
                 <artifactId>mapstruct</artifactId>
-                <version>1.4.2.Final</version>
+                <version>${mapstruct.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.mapstruct</groupId>
                 <artifactId>mapstruct-processor</artifactId>
-                <version>1.4.2.Final</version>
+                <version>${mapstruct.version}</version>
             </dependency>
+            <!--分库分表-->
             <dependency>
-                <groupId>cn.bugstack.middleware</groupId>
-                <artifactId>db-router-spring-boot-starter</artifactId>
-                <version>1.0.1-SNAPSHOT</version>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+                <version>${sharding-jdbc.version}</version>
             </dependency>
         </dependencies>
 

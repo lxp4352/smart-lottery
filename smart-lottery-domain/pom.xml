@@ -38,10 +38,6 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
-        <dependency>
-            <groupId>cn.bugstack.middleware</groupId>
-            <artifactId>db-router-spring-boot-starter</artifactId>
-        </dependency>
     </dependencies>
     <build>
         <finalName>smart-lottery-domain</finalName>

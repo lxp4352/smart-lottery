@@ -2,30 +2,55 @@
 server:
   port: 8080
 
-#配置分库分表
-mini-db-router:
-  jdbc:
+
+spring:
+  shardingsphere:
     datasource:
-      dbCount: 2
-      tbCount: 4
-      default: db00
-      routerKey: userId
-      list: db01,db02
-      db00:
+      names: lottery,lottery01,lottery02
+      lottery:
         driver-class-name: com.mysql.jdbc.Driver
         url: jdbc:mysql://123.56.148.55:3306/smart_lottery?useUnicode=true
         username: root
         password: root
-      db01:
+      lottery01:
         driver-class-name: com.mysql.jdbc.Driver
         url: jdbc:mysql://123.56.148.55:3306/smart_lottery_01?useUnicode=true
         username: root
         password: root
-      db02:
+      lottery02:
         driver-class-name: com.mysql.jdbc.Driver
         url: jdbc:mysql://123.56.148.55:3306/smart_lottery_02?useUnicode=true
         username: root
         password: root
+    #配置分库分表策略
+#    sharding:
+#      tables:
+#        user_strategy_export:
+#          #配置数据库的分布，表的分布
+#          actual-data-nodes: ds$->{0..1}.t_order_$->{0..1}
+#          # 配置库分片策略
+#          database-strategy:
+#            inline:
+#              #根据order_id字段分库
+#              sharding-column: order_id
+#              #指定数据库分片策略 约定order_id值是偶数添加到ds0中，奇数添加到ds1中
+#              algorithm-expression: ds$->{order_id % 2}
+#          # 指定表分片策略
+#          table-strategy:
+#            inline:
+#              sharding-column: order_id
+#              #分表的策略不能跟分库一样，比如都用order_id取模的话，那么就会出现每个数据库中都有一半的数据表没有数据，
+#              # 所以这里分表采取了t_order_${(order_id % 5) % 2}这种先对一个基数取模来解决这个问题
+#              algorithm-expression: t_order_$->{(order_id % 5) % 2}
+#          # 指定表的主键生成策略
+#          key-generator:
+#            column: order_id
+#            type: SNOWFLAKE
+#            #雪花算法的一个可选参数
+#            props:
+#              worker:
+#                id: 1
+
 
 # Dubbo 广播方式配置
 dubbo:

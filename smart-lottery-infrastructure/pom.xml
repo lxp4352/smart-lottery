@@ -50,8 +50,8 @@
             <artifactId>mapstruct-processor</artifactId>
         </dependency>
         <dependency>
-            <groupId>cn.bugstack.middleware</groupId>
-            <artifactId>db-router-spring-boot-starter</artifactId>
+            <groupId>org.apache.shardingsphere</groupId>
+            <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
 

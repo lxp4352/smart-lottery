@@ -1,13 +1,12 @@
 package cn.easyjava.lottery.infrastructure.dao;
 
-import cn.bugstack.middleware.db.router.annotation.DBRouter;
 import cn.easyjava.lottery.infrastructure.po.UserTakeActivity;
 
 /**
  * Description: 用户领取活动表Dao
  * <br/>
  * IUserTakeActivityDao
- *
+ *分库不分表
  * @author laiql
  * @date 2021/12/5 3:36 下午
  */
@@ -35,6 +34,5 @@ public interface IUserTakeActivityDao {
      * @param userTakeActivity 请求入参
      * @return                 领取结果
      */
-    @DBRouter
     UserTakeActivity queryNoConsumedTakeActivityOrder(UserTakeActivity userTakeActivity);
 }

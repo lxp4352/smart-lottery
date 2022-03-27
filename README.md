@@ -56,9 +56,8 @@ smart-lottery抽奖系统基于COLA架构采用DDD领域驱动中四层架构，
 | Redis                         | 分布式缓存         | https://redis.io/                           |
 | Docker                        | 应用容器引擎       | https://www.docker.com/                     |
 | kubernetes                    | 容器集群自动化部署 | https://kubernetes.io/zh/                   |
-| mariadb                       | 数据库             | https://mariadb.org/                        |
-| db-router-spring-boot-starter | 分库分表           | 自研                                        |
-| Otter                         | 分布式数据同步     | https://github.com/alibaba/otter/           |
+| mariadb                       | 数据库             | https://mariadb.org/                      |
+| sharding-jdbc                 | 分库分表           | https://shardingsphere.apache.org/         |
 | ELK                           | 实时日志平台       | https://www.elastic.co/cn/what-is/elk-stack |
 
 ## 容器化部署

@@ -1,13 +1,12 @@
 package cn.easyjava.lottery.infrastructure.dao;
 
-import cn.bugstack.middleware.db.router.annotation.DBRouter;
 import cn.easyjava.lottery.infrastructure.po.UserTakeActivityCount;
 
 /**
  * Description: 用户参与活动Dao
  * <br/>
  * IUserTakeActivityCountDao
- *
+ *分库不分表
  * @author laiql
  * @date 2021/12/6 11:42
  */
@@ -19,7 +18,6 @@ public interface IUserTakeActivityCountDao {
      * @return 领取结果
      * @DBRouter 分库不分表
      */
-    @DBRouter
     UserTakeActivityCount queryUserTakeActivityCount(UserTakeActivityCount userTakeActivityCountReq);
 
     /**
@@ -27,7 +25,6 @@ public interface IUserTakeActivityCountDao {
      *
      * @param userTakeActivityCount 请求入参
      */
-    //@DBRouter
     void addUserTakeActivityCount(UserTakeActivityCount userTakeActivityCount);
 
     /**
@@ -36,6 +33,5 @@ public interface IUserTakeActivityCountDao {
      * @param userTakeActivityCount 请求入参
      * @return 更新数量
      */
-    //@DBRouter
     int updateLeftCount(UserTakeActivityCount userTakeActivityCount);
 }
